@@ -12,13 +12,10 @@
 *  - Fyrsti leikur kláraðist í tveim ágiskunum.
 *  - Seinni leikur kláraðist í þrem ágiskunum.
 */
-function points() {
-  const games = [];
-  let guessCount = play();
-  games.push=(guessCount);
+const games = [];
+let guessCount = play();
+games.push=(guessCount);
 
-  return games;
-}
 
 /**
 * Byrjar leikinn okkar með því að kalla í play().
@@ -29,9 +26,9 @@ function points() {
 function start() {
   do{
     play();
-  }while(confirm("viltu spila annan leik?"));
-  let results = getResults();
-  alert(`${results}`);
+  }while(confirm("viltu spila annan leik?"))
+    let results = getResults();
+    alert(`${results}`);
 }
 
 /**
@@ -57,21 +54,16 @@ function play() {
   alert(`${response}`);
 
   if(guess !== random){
-    debugger;
-    while (guess !== random){
-      number=prompt('prófaðu aftur');
-      guess = parseGuess(number);
-      response = getResponse(guess, random);
-      alert(`${response}`);
-      guessCount++;
-      debugger;
-    }
+    number=prompt('prófaðu aftur');
+    guess = parseGuess(number);
+    response = getResponse(guess, random);
+    alert(`${response}`);
+    guessCount++;
   }
   else if(guess===random){
     response = getResponse(guess, random);
     alert(`${response}`);
     return guessCount;
-    debugger;
   }
   else {
     return null;
